@@ -1,0 +1,14 @@
+{
+    "name": "julien-vidal/alfredworkflow-jenkins",
+    "description": "A workflow for working with jenkins via Alfred",
+    "license": "GNU 2",
+    "authors": [
+        {
+            "name": "Julien VIDAL",
+            "email": "julien.vidal.jv@gmail.com"
+        }
+    ],
+    "require": {
+        "jenkins-khan/jenkins-api": "dev-master"
+    }
+}
