@@ -1,3 +1,5 @@
+<?php
+
 require( 'workflows.php' );
 $w = new Workflows();
 
@@ -16,9 +18,6 @@ elseif ($type == 'username'):
 elseif ($type == 'password'):
 	$w->set( 'password', $in, 'settings.plist' );
 	echo 'Set password to '.$in;
-elseif ($type == 'gitrepo'):
-	$w->set( 'gitrepo', $in, 'settings.plist' );
-	echo 'Set git repo to '.$in;
 elseif ($type == 'protocol'):
 	$w->set( 'protocol', $in, 'settings.plist' );
 	echo 'Set protocol to '.$in;
