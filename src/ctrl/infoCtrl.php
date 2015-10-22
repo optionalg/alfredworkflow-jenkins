@@ -6,9 +6,11 @@ class infoCtrl extends BaseCtrl{
 
 	private $infoData = null; 
 	private $defaultResult = null;
+	private $userinfoH = null;
 
 	function __construct($query, $action, $workflows){
 		parent::__construct($query);
+		$this->userinfoH = new Userinfo($this->workflowH);
 		$this->initInfoData();
 		$this->{$action."Action"}();
 	}
@@ -18,19 +20,19 @@ class infoCtrl extends BaseCtrl{
 		$this->defaultResult 	= new \stdClass();
 
 		$this->infoData->hostname = array(
-			'label' => "Set your base hostname (ex. jenkins.mydomain.com) $this->query"
+			'label' => "Set your base hostname (ex. jenkins.mydomain.com) new:$this->query || old:{$this->userinfoH->getInfo('hostname')}"
 		);
 		$this->infoData->username = array(
-			'label' => "Set your username to $this->query"
+			'label' => "Set your username to new:$this->query || old:{$this->userinfoH->getInfo('username')}"
 		);
 		$this->infoData->password = array(
-			'label' => "Set your password to $this->query"
+			'label' => "Set your password to new:$this->query || old:{$this->userinfoH->getInfo('password')}"
 		);
 		$this->infoData->protocol = array(
-			'label' => "Set your protocol (default is https) $this->query"
+			'label' => "Set your protocol (default is https) new:$this->query || old:{$this->userinfoH->getInfo('protocol')}"
 		);
 		$this->infoData->token = array(
-			'label' => "Set your jenkins api token $this->query"
+			'label' => "Set your jenkins api token new:$this->query || old:{$this->userinfoH->getInfo('token')}"
 		);
 
 		$this->defaultResult->icon = 'icon.png';

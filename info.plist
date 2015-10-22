@@ -139,7 +139,9 @@ require_once('src/jenkins-status.php');</string>
 				<string>Gather Information Options</string>
 				<key>script</key>
 				<string>$query = "{query}";
-require( 'src/jenkins-info.php' );</string>
+$context = "info";
+$action = "input";
+require 'src/main.php';</string>
 				<key>title</key>
 				<string>Enter Jenkins Setup Information</string>
 				<key>type</key>
