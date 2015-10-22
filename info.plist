@@ -8,6 +8,17 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>08D79BCA-0FDC-45D1-ABB9-9434D27A70C3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>78BAC7F5-9615-4B21-A902-6E1C1E221458</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>3EFE5191-92D0-46A1-B89E-CAC5557F08AC</key>
 		<array>
 			<dict>
@@ -188,11 +199,77 @@ require('src/jenkins-info-output.php');</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>title</key>
+				<string>Test done !</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>78BAC7F5-9615-4B21-A902-6E1C1E221458</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>100</integer>
+				<key>keyword</key>
+				<string>jenkins test</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Test in progress</string>
+				<key>script</key>
+				<string>$query = "{query}";
+$context = "info";
+$action = "input";
+require 'src/main.php';</string>
+				<key>title</key>
+				<string>Make your test here dude !</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>08D79BCA-0FDC-45D1-ABB9-9434D27A70C3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>08D79BCA-0FDC-45D1-ABB9-9434D27A70C3</key>
+		<dict>
+			<key>ypos</key>
+			<real>370</real>
+		</dict>
 		<key>3EFE5191-92D0-46A1-B89E-CAC5557F08AC</key>
 		<dict>
 			<key>ypos</key>
@@ -207,6 +284,11 @@ require('src/jenkins-info-output.php');</string>
 		<dict>
 			<key>ypos</key>
 			<real>120</real>
+		</dict>
+		<key>78BAC7F5-9615-4B21-A902-6E1C1E221458</key>
+		<dict>
+			<key>ypos</key>
+			<real>370</real>
 		</dict>
 		<key>C7E4808B-A2E8-42E5-B3F8-B6B580BB0CEE</key>
 		<dict>

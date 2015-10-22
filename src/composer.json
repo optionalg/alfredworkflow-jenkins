@@ -10,5 +10,10 @@
     ],
     "require": {
         "jenkins-khan/jenkins-api": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "JenkinsHelper\\" : ["ctrl/", "helpers/"]
+        }
     }
 }
