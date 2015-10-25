@@ -13,7 +13,7 @@ class BaseCtrl {
 		$this->query = $query;
 	}
 
-	public function render(){
-		echo $this->workflowH->toxml();
+	protected function unknownAction(){
+		echo "Unknown Action !";
 	}
 }

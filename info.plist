@@ -165,7 +165,9 @@ require 'src/main.php';</string>
 				<integer>102</integer>
 				<key>script</key>
 				<string>$query = "{query}";
-require('src/jenkins-info-output.php');</string>
+$context = "info";
+$action = "output";
+require 'src/main.php';</string>
 				<key>type</key>
 				<integer>1</integer>
 			</dict>

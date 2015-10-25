@@ -10,7 +10,6 @@ class Router {
 		$className = "JenkinsHelper\\".$context."Ctrl";
 		$workflowHelper = new Workflows();
 		$ctrl = new $className($query, $action, $workflowHelper);
-		$ctrl->render();
 	}
 
 }

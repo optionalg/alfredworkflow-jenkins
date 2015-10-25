@@ -14,7 +14,7 @@ class Userinfo{
 
 	function __construct($workflow){
 		$this->workflowH = $workflow;
-		$this->settingsPath = $this->workflowH->path().'/settings.plist';
+		$this->settingsPath = 'settings.plist';
 		$this->loadUserInfos();
 	}
 
@@ -29,6 +29,19 @@ class Userinfo{
 	}
 
 	public function getInfo($infoKey){
-		return (array_search($infoKey, $this->infosKeys) !== false)? $this->infosKeys[$infoKey] : false; 
+		return ($this->infoExist($infoKey))? $this->userInfos[$infoKey] : NULL; 
+	}
+
+	public function setInfo($infoKey, $newValue){
+		$hasBeenSet = false;
+		if($this->infoExist($infoKey)){
+			$this->workflowH->set($infoKey, $newValue, $this->settingsPath);
+			$hasBeenSet = true;
+		}
+		return $hasBeenSet;
+	}
+
+	public function infoExist($infoKey){
+		return (array_search($infoKey, $this->infosKeys) !== false); 
 	}
 }
