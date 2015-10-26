@@ -83,8 +83,10 @@
 				<key>runningsubtext</key>
 				<string>Gather Job Statuses...</string>
 				<key>script</key>
-				<string>$orig = "{query}";
-require_once('src/jenkins-status.php');</string>
+				<string>$query = "{query}";
+$context = "status";
+$action = "status";
+require 'src/main.php';</string>
 				<key>subtext</key>
 				<string>Gather Jenkins Job Statuses</string>
 				<key>title</key>

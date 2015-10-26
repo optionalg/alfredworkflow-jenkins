@@ -30,7 +30,6 @@ class infoCtrl extends BaseCtrl{
 
 		$this->infoData->hostname = array('label' => "Set your base hostname (ex. jenkins.mydomain.com) new:$this->query");
 		$this->infoData->username = array('label' => "Set your username to new:$this->query");
-		$this->infoData->password = array('label' => "Set your password to new:$this->query");
 		$this->infoData->protocol = array('label' => "Set your protocol (default is https) new:$this->query");
 		$this->infoData->token = array('label' => "Set your jenkins api token new:$this->query");
 

@@ -8,7 +8,7 @@ class Userinfo{
 
 	private $settingsPath;
 
-	private $infosKeys = ['hostname', 'username', 'password', 'protocol', 'token'];
+	private $infosKeys = ['hostname', 'username', 'protocol', 'token'];
 
 	private $userInfos = array();
 
@@ -43,5 +43,15 @@ class Userinfo{
 
 	public function infoExist($infoKey){
 		return (array_search($infoKey, $this->infosKeys) !== false); 
+	}
+
+	public function getJenkinsUrl(){
+		$protocol = is_null($this->getInfo('protocol'))? 'https' : $this->getInfo('protocol');
+		if(!is_null($this->getInfo('token'))){
+			return $protocol . '://'.$this->getInfo('username') . ':' . $this->getInfo('token') . '@' . $this->getInfo('hostname');
+		}
+		else {
+			return "";
+		}
 	}
 }
