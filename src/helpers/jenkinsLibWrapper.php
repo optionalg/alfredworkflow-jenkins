@@ -41,22 +41,40 @@ class JenkinsLibWrapper{
   } 
 
   public function getStatusIcon($color, $healthReport){
+  	$notColorStatuses = ['disabled','notbuilt','aborted','aborted_anime'];
   	$isAnime = (strpos($color, '_anime') !== false);
   	$color = ($isAnime)? str_replace('_anime', '', $color) : $color;
-  	$imgPath = 'images/%s.png';
-  	$score = $healthReport[0]->score;
+  	$color = (in_array($color, $notColorStatuses))? 'grey' : $color;
+		
+		if(sizeof($healthReport) > 0){
+			$imageURL = $this->generateIcon($healthReport[0]->score, $color);
+		}
+		else{
+			$imageURL = 'src/images/'.$color.'.png';
+		}
+		return $imageURL;
+  }
 
-  	if($score >= 0 && $score <= 100){
-  		$range = floor($score / 20);
-	  	$rangeStart = ($range * 20);
-	  	$rangeEnd = ($range * 20) + 19;
-	  	$imgPath = sprintf('images/health-%sto%s-%s.png', $rangeStart, $rangeEnd, $color);
-  	}
-  	else{
-  		$imgPath = sprintf($imgPath, $color);
-  	}
-  	var_dump($imgPath);
-  	return $imgPath;
+  private function generateIcon($health, $color){
+  	if ($health >= 20 && $health <= 20){
+			$icon = 'src/images/health-00to19-'.$color.'.png';
+		}
+		elseif ( $health > 20 && $health <= 40){
+			$icon = 'src/images/health-20to39-'.$color.'.png';
+		}
+		elseif ( $health > 40 && $health <= 60 ){
+			$icon = 'src/images/health-40to59-'.$color.'.png';
+		}
+		elseif ( $health > 60 && $health <= 80 ){
+			$icon = 'src/images/health-60to79-'.$color.'.png';
+		}
+		elseif ( $health > 80){
+			$icon = 'src/images/health-80plus-'.$color.'.png';
+		}
+		else{
+			$icon = 'src/images/'.$color.'.png';
+		}
+		return $icon;
   }
 
 }

@@ -34,16 +34,14 @@ class statusCtrl extends BaseCtrl{
 		}
 
 		foreach ($allJobs as $job) {
+			$buildingStr = (strpos($job->color, '_anime') !== false)? ' Currently Running.' : '';
 			$this->workflowH->result(
-
 				$job->name, 
 				$job->url, 
 				$job->name, 
-				$job->healthReport[0]->description,
-				$this->jenkinsLibW->getStatusIcon($job->color, $job->healthReport)); //, .$buildingStr, 
-				//$this->defaultData->icon);
+				$job->healthReport[0]->description.$buildingStr,
+				$this->jenkinsLibW->getStatusIcon($job->color, $job->healthReport));
 		}
-		
 
 		echo $this->workflowH->toxml();
 	}
