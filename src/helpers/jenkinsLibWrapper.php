@@ -7,8 +7,6 @@ class JenkinsLibWrapper{
 	private $jenkinsH;
 	private $userinfoH;
 
-
-
 	function __construct($userinfoH){
 		$this->userinfoH = $userinfoH;
 		$this->jenkinsH = new \JenkinsKhan\Jenkins($this->userinfoH->getJenkinsUrl());
@@ -53,6 +51,14 @@ class JenkinsLibWrapper{
 			$imageURL = 'src/images/'.$color.'.png';
 		}
 		return $imageURL;
+  }
+
+  public function launchJob($jobName, $parameters = array()){
+  	return $this->jenkinsH->launchJob($jobName, $parameters);
+  }
+
+  public function getJob($jobName){
+  	return $this->jenkinsH->getJob($jobName);
   }
 
   private function generateIcon($health, $color){

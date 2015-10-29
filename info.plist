@@ -8,17 +8,6 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>08D79BCA-0FDC-45D1-ABB9-9434D27A70C3</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>78BAC7F5-9615-4B21-A902-6E1C1E221458</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>3EFE5191-92D0-46A1-B89E-CAC5557F08AC</key>
 		<array>
 			<dict>
@@ -51,6 +40,33 @@
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D0327411-8951-492E-8E37-C7B51443757A</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>ReBuild Last with params</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>39B0EEFE-9F05-4170-848C-7D7E6D7503B9</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>ReBuild Last with params</string>
+			</dict>
+		</array>
+		<key>D0327411-8951-492E-8E37-C7B51443757A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EF80CBA0-B17C-461F-8B17-08E1232FD573</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
@@ -71,7 +87,7 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>keyword</key>
-				<string>jenkins status</string>
+				<string>jenkins jobs</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -88,9 +104,9 @@ $context = "status";
 $action = "status";
 require 'src/main.php';</string>
 				<key>subtext</key>
-				<string>Gather Jenkins Job Statuses</string>
+				<string>List Jenkins Job Statuses</string>
 				<key>title</key>
-				<string>Gather Jenkins Job Statuses</string>
+				<string>List Jenkins Job Statuses</string>
 				<key>type</key>
 				<integer>1</integer>
 				<key>withspace</key>
@@ -117,6 +133,70 @@ require 'src/main.php';</string>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>C7E4808B-A2E8-42E5-B3F8-B6B580BB0CEE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>$query = '{query}';
+$context = "build";
+$action = "buildWithParams";
+require 'src/main.php';</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D0327411-8951-492E-8E37-C7B51443757A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Build launched !</string>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>EF80CBA0-B17C-461F-8B17-08E1232FD573</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>39B0EEFE-9F05-4170-848C-7D7E6D7503B9</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -205,106 +285,50 @@ require 'src/main.php';</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>title</key>
-				<string>Test done !</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>78BAC7F5-9615-4B21-A902-6E1C1E221458</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>100</integer>
-				<key>keyword</key>
-				<string>jenkins test</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Test in progress</string>
-				<key>script</key>
-				<string>$query = "{query}";
-$context = "info";
-$action = "input";
-require 'src/main.php';</string>
-				<key>title</key>
-				<string>Make your test here dude !</string>
-				<key>type</key>
-				<integer>1</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>08D79BCA-0FDC-45D1-ABB9-9434D27A70C3</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>08D79BCA-0FDC-45D1-ABB9-9434D27A70C3</key>
+		<key>39B0EEFE-9F05-4170-848C-7D7E6D7503B9</key>
 		<dict>
 			<key>ypos</key>
-			<real>370</real>
+			<real>360</real>
 		</dict>
 		<key>3EFE5191-92D0-46A1-B89E-CAC5557F08AC</key>
 		<dict>
 			<key>ypos</key>
-			<real>250</real>
+			<real>550</real>
 		</dict>
 		<key>5A7BFC9D-C063-4AA1-AE70-CAB4D7F0D3FD</key>
 		<dict>
 			<key>ypos</key>
-			<real>250</real>
+			<real>550</real>
 		</dict>
 		<key>63F60794-BB56-4415-9372-BAF974C3A7E1</key>
 		<dict>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
-		<key>78BAC7F5-9615-4B21-A902-6E1C1E221458</key>
-		<dict>
-			<key>ypos</key>
-			<real>370</real>
-		</dict>
 		<key>C7E4808B-A2E8-42E5-B3F8-B6B580BB0CEE</key>
 		<dict>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
+		<key>D0327411-8951-492E-8E37-C7B51443757A</key>
+		<dict>
+			<key>ypos</key>
+			<real>240</real>
+		</dict>
+		<key>EF80CBA0-B17C-461F-8B17-08E1232FD573</key>
+		<dict>
+			<key>ypos</key>
+			<real>240</real>
+		</dict>
 		<key>F50CC8C5-932D-4024-A1BA-DB4C8638B20C</key>
 		<dict>
 			<key>ypos</key>
-			<real>250</real>
+			<real>550</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
